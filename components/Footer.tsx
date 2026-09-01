@@ -125,10 +125,18 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/soon"
+                  href="/privacy"
                   className="text-gray-300 hover:text-white transition-colors text-sm"
                 >
                   Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/data-deletion"
+                  className="text-gray-300 hover:text-white transition-colors text-sm"
+                >
+                  Delete My Data
                 </Link>
               </li>
             </ul>
