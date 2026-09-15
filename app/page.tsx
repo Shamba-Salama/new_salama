@@ -103,8 +103,8 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
         id="hero"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
       >
         <div className="absolute inset-0 z-0">
           <video
@@ -114,32 +114,42 @@ export default function Home() {
             loop
             playsInline
             poster="/assets/img/hero.png"
-            className="w-full h-full object-cover scale-[1.05]"
+            className="w-full h-full object-cover scale-[1.03]"
           >
             <source src="/assets/img/hero-video.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+
+          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/60" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 tracking-tight animate-fade-in-up">
-              Salama <span className="text-accent">Farm</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-accent text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              <span className="w-2 h-2 rounded-full bg-accent" />
+              Smart Agriculture
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
+              Smart Farming with{" "}
+              <span className="text-accent">Salama Farm</span>
             </h1>
-            <p className="text-base md:text-lg text-gray-200 mb-8 leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms]">
-              Take your farm to the next level with digital tools that make your
-              work easier. At Salama Farm, we help you grow smarter and farm
-              better.
+
+            <p className="text-base md:text-lg lg:text-xl text-gray-200 mb-9 leading-relaxed max-w-2xl mx-auto">
+              Empowering farmers with smart, sustainable technology that helps
+              protect crops, improve productivity, and grow better.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in-up [animation-delay:400ms]">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="#features"
-                className="group bg-accent text-primary px-6 py-3 rounded-full font-bold text-sm flex items-center space-x-2 transition-all hover:bg-white hover:scale-105 active:scale-95 shadow-lg"
+                className="group w-full sm:w-auto bg-accent text-primary px-7 py-3.5 rounded-full font-bold text-sm flex items-center justify-center gap-2 transition-all hover:bg-white hover:-translate-y-1 active:scale-95 shadow-lg"
               >
+                <span>Explore Features</span>
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 group-hover:rotate-12 transition-transform"
+                  className="h-4 w-4 group-hover:translate-x-1 transition-transform"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -148,29 +158,30 @@ export default function Home() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-                <span>Explore Features</span>
               </a>
+
               <Link
                 href="/products"
-                className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-3 rounded-full font-bold text-sm flex items-center space-x-2 transition-all hover:bg-white/20 hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border border-white/25 px-7 py-3.5 rounded-full font-bold text-sm flex items-center justify-center gap-2 transition-all hover:bg-white/20 hover:-translate-y-1"
               >
-                <span>View Products</span>
+                View Products
               </Link>
             </div>
 
-            <div className="mt-12 flex flex-col items-center animate-fade-in-up [animation-delay:600ms]">
+            <div className="mt-12 flex flex-col items-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/assets/img/brand/logo.png"
-                className="h-12 w-12 mb-3 object-contain rounded-full bg-white/95 p-0.5"
+                className="h-14 w-14 mb-3 object-contain rounded-full bg-white/95 p-1 shadow-lg"
                 alt="Salama Farm Logo"
-                width={48}
-                height={48}
+                width={56}
+                height={56}
               />
-              <span className="text-accent font-medium tracking-widest uppercase text-[10px]">
+
+              <span className="text-accent font-medium tracking-[0.25em] uppercase text-[10px]">
                 Your yield our Priority
               </span>
             </div>
@@ -181,8 +192,7 @@ export default function Home() {
 
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
           <svg
-            className="relative block w-full h-[100px] fill-white"
-            data-name="Layer 1"
+            className="relative block w-full h-[80px] md:h-[100px] fill-white"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
@@ -193,18 +203,19 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-14 bg-white">
+      <section className="py-14 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="text-center p-5 md:p-6 rounded-2xl bg-gray-50 border border-gray-100 transition-transform hover:-translate-y-1"
+                className="group text-center p-6 md:p-7 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="text-2xl md:text-4xl font-bold text-primary mb-1">
+                <div className="text-2xl md:text-4xl font-bold text-primary mb-2">
                   {stat.value}
                 </div>
-                <div className="text-gray-500 font-semibold uppercase tracking-wider text-xs">
+
+                <div className="text-gray-500 font-semibold uppercase tracking-wider text-[10px] md:text-xs">
                   {stat.label}
                 </div>
               </div>
@@ -213,43 +224,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Agrovet Platform */}
       <AgrovetLaunch />
 
       {/* Impact Section */}
-      <section className="py-16 md:py-20 relative overflow-hidden">
+      <section className="py-20 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/assets/img/carousel/farm.png"
-            alt="Green Field"
+            alt="Green agricultural field"
             fill
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-white/90 backdrop-blur-sm" />
+
+          <div className="absolute inset-0 bg-white/92 backdrop-blur-sm" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="bg-accent/20 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 inline-block">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="bg-accent/20 text-primary px-4 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] inline-block mb-4">
               Our Impact
             </span>
-            <h2 className="text-2xl md:text-4xl font-bold text-primary mb-3">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight">
               Transforming Agriculture
             </h2>
+
             <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               Discover how our solutions make farming smarter and more
               sustainable.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {impactCards.map((card) => (
               <div
                 key={card.title}
-                className="group bg-white p-7 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden relative"
+                className="group bg-white p-7 md:p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden relative"
               >
+                <div className="absolute -right-10 -top-10 w-28 h-28 bg-accent/10 rounded-full group-hover:scale-150 transition-transform duration-500" />
+
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-primary text-accent rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-primary text-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
@@ -260,17 +277,20 @@ export default function Home() {
                       {card.icon}
                     </svg>
                   </div>
-                  <h4 className="text-lg font-bold text-primary mb-2">
+
+                  <h3 className="text-lg md:text-xl font-bold text-primary mb-3">
                     {card.title}
-                  </h4>
-                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                  </h3>
+
+                  <p className="text-gray-600 mb-5 leading-relaxed text-sm">
                     {card.description}
                   </p>
+
                   <div className="flex flex-wrap gap-2">
                     {card.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 bg-primary/5 text-primary text-[11px] font-bold rounded-full even:bg-accent/20"
+                        className="px-3 py-1.5 bg-primary/5 text-primary text-[10px] font-bold rounded-full"
                       >
                         {tag}
                       </span>
@@ -283,47 +303,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Revolutionizing Farm Protection */}
-      <section className="py-16 md:py-20 bg-white overflow-hidden">
+      {/* Farm Protection Section */}
+      <section className="py-20 md:py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <div className="w-full lg:w-1/2 order-2 lg:order-1">
               <div className="relative group">
                 <div className="absolute -top-8 -left-8 w-48 h-48 bg-accent/20 rounded-full blur-3xl" />
-                <div className="relative z-10 rounded-3xl overflow-hidden shadow-xl transform transition-transform duration-700 group-hover:scale-[1.01]">
+
+                <div className="relative z-10 rounded-3xl overflow-hidden shadow-xl">
                   <Image
                     src="/assets/img/carousel/drone.png"
-                    alt="Salama Drone"
+                    alt="Salama Farm drone technology"
                     width={800}
                     height={600}
-                    className="w-full h-auto"
+                    className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 order-1 lg:order-2 space-y-5">
-              <span className="bg-primary/5 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider inline-block">
+
+            <div className="w-full lg:w-1/2 order-1 lg:order-2">
+              <span className="bg-primary/5 text-primary px-4 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] inline-block mb-5">
                 Security First
               </span>
-              <h2 className="text-2xl md:text-4xl font-bold text-primary leading-tight">
+
+              <h2 className="text-3xl md:text-4xl font-bold text-primary leading-tight mb-4">
                 Revolutionizing Farm Protection
               </h2>
-              <p className="text-base font-medium text-gray-500">
+
+              <p className="text-base font-semibold text-gray-500 mb-4">
                 AI-powered smart farming for better yields
               </p>
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-7">
                 With SalamaFarm&apos;s AI-powered drone, you can keep birds and
                 pests away from your farm effortlessly — so hard work turns into
                 maximum yield.
               </p>
 
-              <div className="flex flex-wrap gap-3 pt-1">
+              <div className="flex flex-wrap gap-3">
                 <Link
                   href="/services"
-                  className="inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-accent hover:text-primary transition-all group"
+                  className="group inline-flex items-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full font-bold text-sm hover:bg-accent hover:text-primary transition-all"
                 >
                   <span>Our Services</span>
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-4 w-4 group-hover:translate-x-1 transition-transform"
@@ -339,9 +366,10 @@ export default function Home() {
                     />
                   </svg>
                 </Link>
+
                 <Link
                   href="/products"
-                  className="inline-flex items-center px-6 py-3 rounded-full font-bold text-sm border border-primary/20 text-primary hover:border-accent transition-all"
+                  className="inline-flex items-center px-6 py-3.5 rounded-full font-bold text-sm border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all"
                 >
                   Products
                 </Link>
@@ -351,42 +379,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-16 md:py-20 bg-primary relative overflow-hidden" id="features">
+      {/* Features Section */}
+      <section
+        id="features"
+        className="py-20 md:py-24 bg-primary relative overflow-hidden"
+      >
         <div className="absolute inset-0 z-0">
           <Image
             src="/assets/img/hero.png"
-            alt="Landscape"
+            alt=""
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-10"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-primary/80" />
+
+          <div className="absolute inset-0 bg-primary/90" />
         </div>
 
+        <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-accent/10 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-white/5 blur-3xl" />
+
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="bg-white/10 text-accent px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 inline-block">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="bg-white/10 border border-white/10 text-accent px-4 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] inline-block mb-4">
               Ecosystem
             </span>
-            <h2 className="text-2xl md:text-4xl font-bold text-white mb-3">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Agricultural Features
             </h2>
+
             <p className="text-sm md:text-base text-gray-300 leading-relaxed">
               Everything you need for a smart, integrated farming experience.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500"
+                className="group p-7 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/30 transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="w-11 h-11 bg-accent/20 text-accent rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-accent/15 text-accent rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-primary transition-all duration-300">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -394,9 +431,11 @@ export default function Home() {
                     {feature.icon}
                   </svg>
                 </div>
-                <h3 className="text-base font-bold text-white mb-2">
+
+                <h3 className="text-lg font-bold text-white mb-3">
                   {feature.title}
                 </h3>
+
                 <p className="text-gray-400 leading-relaxed text-sm">
                   {feature.description}
                 </p>
@@ -406,6 +445,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
       <FaqSection />
     </>
   );
