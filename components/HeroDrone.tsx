@@ -11,26 +11,32 @@ export function HeroDrone() {
 
     const moveDrone = () => {
       setPos({
-        left: `${Math.random() * 60 + 20}%`,
-        top: `${Math.random() * 60 + 20}%`,
+        left: `${Math.random() * 55 + 22}%`,
+        top: `${Math.random() * 50 + 25}%`,
       });
-      timeoutId = setTimeout(moveDrone, 3000 + Math.random() * 2000);
+
+      timeoutId = setTimeout(moveDrone, 3500 + Math.random() * 1500);
     };
 
     timeoutId = setTimeout(moveDrone, 1000);
+
     return () => clearTimeout(timeoutId);
   }, []);
 
   return (
     <div
       id="drone-box"
-      className="absolute pointer-events-none transition-all duration-[2s] ease-in-out z-50"
-      style={{ width: 180, left: pos.left, top: pos.top }}
+      className="absolute pointer-events-none transition-all duration-[2.5s] ease-in-out z-20"
+      style={{
+        width: 180,
+        left: pos.left,
+        top: pos.top,
+        transform: "translate(-50%, -50%)",
+      }}
+      aria-hidden="true"
     >
       <div className="relative p-4 animate-bounce-slow">
         <DroneSvg />
-        <div className="absolute top-0 left-0 w-1/4 h-1/4 border-2 border-accent rounded-full animate-spin-slow" />
-        <div className="absolute top-0 right-0 w-1/4 h-1/4 border-2 border-accent rounded-full animate-spin-slow" />
       </div>
     </div>
   );

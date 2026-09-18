@@ -5,66 +5,80 @@ import { useState } from "react";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [pagesOpen, setPagesOpen] = useState(false);
+
+  const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-primary/95 backdrop-blur-md border-b border-white/10">
-      <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center">
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-primary/95 shadow-sm backdrop-blur-md">
+      <nav className="container mx-auto flex items-center justify-between px-4 py-3">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="flex items-center rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+          aria-label="Salama Farm home"
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/img/brand/logo.png"
             alt="Salama Farm Logo"
-            className="h-11 w-auto object-contain rounded-lg bg-white p-1"
+            className="h-10 w-auto rounded-lg bg-white p-1 object-contain sm:h-11"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden items-center gap-6 lg:flex xl:gap-7">
           <Link
             href="/"
-            className="text-white hover:text-accent font-medium transition-colors"
+            className="font-medium text-white transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
           >
             Home
           </Link>
 
           <Link
             href="/about"
-            className="text-white hover:text-accent font-medium transition-colors"
+            className="font-medium text-white transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
           >
             About
           </Link>
 
           <Link
             href="/services"
-            className="text-white hover:text-accent font-medium transition-colors"
+            className="font-medium text-white transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
           >
             Services
           </Link>
 
           <Link
             href="/products"
-            className="text-white hover:text-accent font-medium transition-colors"
+            className="font-medium text-white transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
           >
             Products
           </Link>
 
           <Link
             href="/contact"
-            className="text-white hover:text-accent font-medium transition-colors"
+            className="font-medium text-white transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
           >
             Contact
           </Link>
 
-          <div className="relative group">
+          {/* Pages Dropdown */}
+          <div className="relative">
             <button
               type="button"
-              className="text-white group-hover:text-accent font-medium flex items-center gap-1 transition-colors"
+              onClick={() => setPagesOpen((open) => !open)}
+              className="flex items-center gap-1 font-medium text-white transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
+              aria-expanded={pagesOpen}
+              aria-haspopup="true"
             >
               <span>Pages</span>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  pagesOpen ? "rotate-180" : ""
+                }`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -79,27 +93,19 @@ export function Header() {
               </svg>
             </button>
 
-            <div className="absolute top-full right-0 mt-3 w-64 bg-white rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right group-hover:translate-y-0 -translate-y-2 p-4">
-              <div className="space-y-4">
+            {pagesOpen && (
+              <div className="absolute right-0 top-full mt-3 w-64 overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-2xl">
                 <div>
-                  <h6 className="text-primary font-bold text-xs uppercase tracking-wider mb-2">
+                  <h6 className="mb-3 text-xs font-bold uppercase tracking-wider text-primary">
                     Main Pages
                   </h6>
 
-                  <ul className="space-y-2">
-                    <li>
-                      <Link
-                        href="/products"
-                        className="text-gray-600 hover:text-primary text-sm transition-colors"
-                      >
-                        Products
-                      </Link>
-                    </li>
-
+                  <ul className="space-y-1">
                     <li>
                       <Link
                         href="/gallery"
-                        className="text-gray-600 hover:text-primary text-sm transition-colors"
+                        onClick={() => setPagesOpen(false)}
+                        className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-primary"
                       >
                         Gallery
                       </Link>
@@ -108,7 +114,8 @@ export function Header() {
                     <li>
                       <Link
                         href="/about#team"
-                        className="text-gray-600 hover:text-primary text-sm transition-colors"
+                        onClick={() => setPagesOpen(false)}
+                        className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-primary"
                       >
                         Team
                       </Link>
@@ -117,7 +124,8 @@ export function Header() {
                     <li>
                       <Link
                         href="/soon"
-                        className="text-gray-600 hover:text-primary text-sm transition-colors"
+                        onClick={() => setPagesOpen(false)}
+                        className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-primary"
                       >
                         Salama App
                       </Link>
@@ -125,19 +133,20 @@ export function Header() {
                   </ul>
                 </div>
 
-                <div className="border-t border-gray-100 pt-3">
-                  <h6 className="text-primary font-bold text-xs uppercase tracking-wider mb-2">
+                <div className="mt-4 border-t border-gray-100 pt-4">
+                  <h6 className="mb-3 text-xs font-bold uppercase tracking-wider text-primary">
                     Coming Soon
                   </h6>
 
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     <li>
                       <Link
                         href="/products#agrovet-dashboard"
-                        className="text-gray-500 hover:text-primary text-sm flex items-center justify-between transition-colors"
+                        onClick={() => setPagesOpen(false)}
+                        className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-50 hover:text-primary"
                       >
-                        Agrovet Store
-                        <span className="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full">
+                        <span>Agrovet Store</span>
+                        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
                           Platform
                         </span>
                       </Link>
@@ -146,10 +155,11 @@ export function Header() {
                     <li>
                       <Link
                         href="/soon"
-                        className="text-gray-500 hover:text-primary text-sm flex items-center justify-between transition-colors"
+                        onClick={() => setPagesOpen(false)}
+                        className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-50 hover:text-primary"
                       >
-                        Blog
-                        <span className="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full">
+                        <span>Blog</span>
+                        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
                           Soon
                         </span>
                       </Link>
@@ -158,10 +168,11 @@ export function Header() {
                     <li>
                       <Link
                         href="/soon"
-                        className="text-gray-500 hover:text-primary text-sm flex items-center justify-between transition-colors"
+                        onClick={() => setPagesOpen(false)}
+                        className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-50 hover:text-primary"
                       >
-                        Pricing
-                        <span className="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full">
+                        <span>Pricing</span>
+                        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
                           Soon
                         </span>
                       </Link>
@@ -169,15 +180,15 @@ export function Header() {
                   </ul>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
         {/* Header Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/soon"
-            className="hidden md:flex items-center gap-2 text-white hover:text-accent transition-colors"
+            className="hidden items-center gap-2 font-medium text-white transition-colors hover:text-accent focus:outline-none focus-visible:text-accent md:flex"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -195,12 +206,12 @@ export function Header() {
               />
             </svg>
 
-            <span className="font-medium">App</span>
+            <span>App</span>
           </Link>
 
           <Link
             href="/form"
-            className="hidden sm:flex items-center gap-2 bg-white text-primary hover:bg-accent px-5 py-2.5 rounded-full font-bold transition-all duration-300 shadow-lg"
+            className="hidden items-center gap-2 rounded-full bg-white px-5 py-2.5 font-bold text-primary shadow-lg transition-all duration-300 hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary sm:flex"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -221,16 +232,18 @@ export function Header() {
             <span>Get Started</span>
           </Link>
 
+          {/* Mobile Menu Button */}
           <button
             type="button"
-            className="lg:hidden text-white p-1"
+            onClick={() => setMobileOpen((open) => !open)}
+            className="rounded-lg p-2 text-white transition-colors hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:hidden"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((v) => !v)}
+            aria-controls="mobile-navigation"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8"
+              className="h-7 w-7"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -248,7 +261,7 @@ export function Header() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"
+                  d="M4 6h16M4 12h16M4 18h16"
                 />
               )}
             </svg>
@@ -258,13 +271,16 @@ export function Header() {
 
       {/* Mobile Navigation */}
       {mobileOpen && (
-        <div className="lg:hidden bg-primary border-t border-white/10 px-5 py-5 absolute top-full left-0 w-full animate-fade-in-down">
-          <ul className="space-y-4">
+        <div
+          id="mobile-navigation"
+          className="border-t border-white/10 bg-primary px-5 py-5 shadow-xl lg:hidden"
+        >
+          <ul className="space-y-1">
             <li>
               <Link
                 href="/"
-                className="text-white block font-medium hover:text-accent transition-colors"
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobile}
+                className="block rounded-xl px-3 py-3 font-medium text-white transition-colors hover:bg-white/10 hover:text-accent"
               >
                 Home
               </Link>
@@ -273,8 +289,8 @@ export function Header() {
             <li>
               <Link
                 href="/about"
-                className="text-white block font-medium hover:text-accent transition-colors"
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobile}
+                className="block rounded-xl px-3 py-3 font-medium text-white transition-colors hover:bg-white/10 hover:text-accent"
               >
                 About
               </Link>
@@ -283,8 +299,8 @@ export function Header() {
             <li>
               <Link
                 href="/services"
-                className="text-white block font-medium hover:text-accent transition-colors"
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobile}
+                className="block rounded-xl px-3 py-3 font-medium text-white transition-colors hover:bg-white/10 hover:text-accent"
               >
                 Services
               </Link>
@@ -293,8 +309,8 @@ export function Header() {
             <li>
               <Link
                 href="/products"
-                className="text-white block font-medium hover:text-accent transition-colors"
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobile}
+                className="block rounded-xl px-3 py-3 font-medium text-white transition-colors hover:bg-white/10 hover:text-accent"
               >
                 Products
               </Link>
@@ -303,8 +319,8 @@ export function Header() {
             <li>
               <Link
                 href="/gallery"
-                className="text-white block font-medium hover:text-accent transition-colors"
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobile}
+                className="block rounded-xl px-3 py-3 font-medium text-white transition-colors hover:bg-white/10 hover:text-accent"
               >
                 Gallery
               </Link>
@@ -312,29 +328,39 @@ export function Header() {
 
             <li>
               <Link
-                href="/contact"
-                className="text-white block font-medium hover:text-accent transition-colors"
-                onClick={() => setMobileOpen(false)}
+                href="/about#team"
+                onClick={closeMobile}
+                className="block rounded-xl px-3 py-3 font-medium text-white transition-colors hover:bg-white/10 hover:text-accent"
               >
-                Contact
-              </Link>
-            </li>
-
-            <li className="border-t border-white/10 pt-4">
-              <Link
-                href="/soon"
-                className="text-white block font-medium hover:text-accent transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                App
+                Team
               </Link>
             </li>
 
             <li>
               <Link
+                href="/contact"
+                onClick={closeMobile}
+                className="block rounded-xl px-3 py-3 font-medium text-white transition-colors hover:bg-white/10 hover:text-accent"
+              >
+                Contact
+              </Link>
+            </li>
+
+            <li className="mt-3 border-t border-white/10 pt-4">
+              <Link
+                href="/soon"
+                onClick={closeMobile}
+                className="block rounded-xl px-3 py-3 font-medium text-white transition-colors hover:bg-white/10 hover:text-accent"
+              >
+                App
+              </Link>
+            </li>
+
+            <li className="pt-2">
+              <Link
                 href="/form"
-                className="inline-flex bg-white text-primary px-6 py-3 rounded-full font-bold hover:bg-accent transition-all"
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobile}
+                className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3 font-bold text-primary transition-all hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
               >
                 Get Started
               </Link>
