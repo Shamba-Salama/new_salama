@@ -61,69 +61,106 @@ const appFeatures = [
   },
 ];
 
+const appScreens = [
+  {
+    src: "/assets/img/carousel/agro1.jpeg",
+    label: "AI Diagnosis",
+    caption: "Snap a photo to identify crop or livestock issues fast.",
+  },
+  {
+    src: "/assets/img/carousel/agro2.jpeg",
+    label: "Store Explore",
+    caption: "Browse fertilizers, seeds, and inputs from nearby shops.",
+  },
+  {
+    src: "/assets/img/carousel/agro3.jpeg",
+    label: "Agrovet Chat",
+    caption: "Message verified agrovets for advice and follow-ups.",
+  },
+  {
+    src: "/assets/img/carousel/agro4.jpeg",
+    label: "My Orders",
+    caption: "Track cart, payments, pickup, and delivery in one place.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
-      <section className="relative py-16 flex items-center justify-center overflow-hidden pt-36">
-        <div className="absolute inset-0 z-0">
+      {/* Hero */}
+      <section className="relative min-h-[520px] flex items-center justify-center overflow-hidden pt-32 pb-20">
+        <div className="absolute inset-0">
           <Image
             src="/assets/img/carousel/rice.png"
-            alt="Rice Field"
+            alt="Rice field"
             fill
             priority
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/80 to-secondary/70" />
+          <div className="absolute inset-0 bg-primary/85" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="max-w-3xl mx-auto">
-            <span className="bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">
-              About Us
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-accent mb-6">
+              About Salama Farm
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+
+            <h1 className="text-4xl md:text-6xl font-bold text-white leading-[1.08] tracking-tight mb-6">
               Cultivating Innovation in{" "}
               <span className="text-accent">Agriculture</span>
             </h1>
-            <p className="text-sm md:text-base text-gray-200 mb-6 leading-relaxed max-w-2xl mx-auto">
+
+            <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-200 leading-relaxed mb-8">
               We&apos;re sowing the seeds of tomorrow&apos;s farming revolution
               with AI-powered solutions that protect harvests and nurture
               sustainable growth.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <span className="bg-accent text-primary px-4 py-1.5 rounded-full font-bold text-xs">
+
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="rounded-full bg-accent px-5 py-2 text-xs md:text-sm font-bold text-primary">
                 Sustainable Farming
               </span>
-              <span className="bg-white/10 text-white border border-white/20 px-4 py-1.5 rounded-full font-bold text-xs">
+
+              <span className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs md:text-sm font-bold text-white backdrop-blur-sm">
                 Smart Technology
               </span>
-              <span className="bg-white/10 text-white border border-white/20 px-4 py-1.5 rounded-full font-bold text-xs">
-                Agrovet Store — Friday
+
+              <span className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs md:text-sm font-bold text-white backdrop-blur-sm">
+                Farmer-Focused Solutions
               </span>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Agrovet */}
       <AgrovetLaunch compact />
 
-      {/* Video Showcase */}
-      <section className="py-16 bg-accent/10">
+      {/* Technology Video */}
+      <section className="py-20 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Our Technology
+            </span>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mt-3 mb-5">
               See Our Technology in Action
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto rounded-full mb-8" />
-            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+
+            <div className="w-16 h-1.5 bg-accent rounded-full mx-auto mb-6" />
+
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
               Watch how our AI-powered drone transforms modern farming with
               real-time detection and smart deterrents.
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto group">
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white transform transition-transform duration-700 group-hover:scale-[1.01]">
+          <div className="max-w-5xl mx-auto">
+            <div className="relative overflow-hidden rounded-3xl bg-black shadow-2xl ring-1 ring-black/5">
               <iframe
                 className="w-full aspect-video"
                 src="https://www.youtube.com/embed/Iqr3XIhSnUQ?si=D3I7vCT6juFK0_0d"
@@ -136,92 +173,126 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Mission */}
-      <section className="py-16 bg-white overflow-hidden">
+      {/* Mission / Story */}
+      <section className="py-20 md:py-28 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="w-full lg:w-1/2 relative">
-              <div className="absolute -top-10 -left-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-pulse" />
-              <Image
-                src="/assets/img/sections/agrotech.png"
-                alt="Modern Agrotech"
-                width={800}
-                height={600}
-                className="relative z-10 w-full rounded-[3rem] shadow-2xl border-4 border-accent transform -rotate-2 hover:rotate-0 transition-transform duration-500"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-3xl shadow-xl z-20 flex items-center space-x-4">
-                <div className="p-3 bg-white/10 rounded-xl">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 text-accent"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-bold text-lg">Farm Protection</div>
-                  <div className="text-accent text-sm">Certified Security</div>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Image */}
+            <div className="relative">
+              <div className="absolute -top-8 -left-8 w-40 h-40 bg-accent/20 rounded-full blur-3xl" />
+
+              <div className="relative">
+                <Image
+                  src="/assets/img/sections/agrotech.png"
+                  alt="Modern agrotechnology"
+                  width={800}
+                  height={600}
+                  className="relative z-10 w-full rounded-3xl shadow-xl object-cover"
+                />
+
+                <div className="absolute -bottom-6 -right-4 md:-right-8 z-20 bg-primary text-white rounded-2xl shadow-xl p-4 md:p-5">
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 text-accent"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                      </svg>
+                    </div>
+
+                    <div>
+                      <div className="font-bold text-sm md:text-base">
+                        Farm Protection
+                      </div>
+                      <div className="text-accent text-xs md:text-sm">
+                        Smart Technology
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 space-y-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary leading-tight">
+
+            {/* Content */}
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+                Our Mission
+              </span>
+
+              <h2 className="text-3xl md:text-4xl font-bold text-primary leading-tight mt-3 mb-5">
                 Nurturing Tomorrow&apos;s Harvests
               </h2>
-              <div className="w-20 h-2 bg-accent rounded-full" />
-              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                SalamaFarm is rooted in a dedicated team of agricultural
-                engineers, agritech specialists, and field experts. Every farmer
-                we partner with becomes part of our growing family.
-              </p>
-              <p className="text-lg text-gray-500 leading-relaxed">
-                With deep roots in innovation and an unwavering passion for
-                sustainable farming, we bring intelligent, eco-friendly solutions
-                directly to your fields.
-              </p>
 
-              <div className="grid grid-cols-2 gap-4 pt-4">
-                <div className="flex items-center space-x-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-accent transition-colors">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-primary shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                    />
-                  </svg>
-                  <span className="font-bold text-primary">Crop Protection</span>
+              <div className="w-16 h-1.5 bg-accent rounded-full mb-7" />
+
+              <div className="space-y-5 text-gray-600 leading-relaxed">
+                <p>
+                  SalamaFarm is rooted in a dedicated team of agricultural
+                  engineers, agritech specialists, and field experts. Every
+                  farmer we partner with becomes part of our growing family.
+                </p>
+
+                <p>
+                  With deep roots in innovation and an unwavering passion for
+                  sustainable farming, we bring intelligent, eco-friendly
+                  solutions directly to your fields.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 mt-8">
+                <div className="group flex items-center gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-md">
+                  <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-primary"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                      />
+                    </svg>
+                  </div>
+
+                  <span className="font-bold text-primary text-sm">
+                    Crop Protection
+                  </span>
                 </div>
-                <div className="flex items-center space-x-3 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-accent transition-colors">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-primary shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                  <span className="font-bold text-primary">Sustainable Tech</span>
+
+                <div className="group flex items-center gap-3 rounded-2xl border border-gray-100 bg-gray-50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-md">
+                  <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-primary"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+
+                  <span className="font-bold text-primary text-sm">
+                    Sustainable Tech
+                  </span>
                 </div>
               </div>
             </div>
@@ -230,62 +301,47 @@ export default function AboutPage() {
       </section>
 
       {/* Salama App */}
-      <section className="py-16 md:py-20 bg-primary relative overflow-hidden" id="salama-app">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-[120px]" />
+      <section
+        className="relative overflow-hidden bg-primary py-20 md:py-28"
+        id="salama-app"
+      >
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-            <span className="bg-white/10 text-accent px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 inline-block">
+          <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+            <span className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-accent">
               Mobile Solution
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-5">
               Introducing Salama App
             </h2>
-            <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
               Your agricultural companion — diagnose crops, shop agrovet
               products, chat with experts, and manage orders.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6 mb-12 md:mb-16 max-w-6xl mx-auto">
-            {[
-              {
-                src: "/assets/img/carousel/agro1.jpeg",
-                label: "AI Diagnosis",
-                caption: "Snap a photo to identify crop or livestock issues fast.",
-              },
-              {
-                src: "/assets/img/carousel/agro2.jpeg",
-                label: "Store Explore",
-                caption: "Browse fertilizers, seeds, and inputs from nearby shops.",
-              },
-              {
-                src: "/assets/img/carousel/agro3.jpeg",
-                label: "Agrovet Chat",
-                caption: "Message verified agrovets for advice and follow-ups.",
-              },
-              {
-                src: "/assets/img/carousel/agro4.jpeg",
-                label: "My Orders",
-                caption: "Track cart, payments, pickup, and delivery in one place.",
-              },
-            ].map((shot, index) => (
+          {/* App Screens */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-6xl mx-auto mb-14 md:mb-16">
+            {appScreens.map((shot, index) => (
               <article
                 key={shot.src}
-                className={`group bg-white/95 backdrop-blur-sm rounded-[1.75rem] p-3 shadow-xl border border-white/20 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${
-                  index % 2 === 1 ? "sm:mt-6 xl:mt-8" : ""
+                className={`group rounded-3xl bg-white p-4 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+                  index % 2 === 1 ? "xl:mt-8" : ""
                 }`}
               >
-                <div className="relative mx-auto w-full max-w-[220px]">
-                  {/* Phone chrome */}
-                  <div className="rounded-[1.35rem] bg-primary p-1.5 shadow-inner">
-                    <div className="relative rounded-[1.1rem] overflow-hidden bg-white aspect-[9/19]">
-                      <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-1.5">
+                <div className="mx-auto max-w-[220px]">
+                  <div className="rounded-[1.5rem] bg-primary p-1.5 shadow-inner">
+                    <div className="relative overflow-hidden rounded-[1.2rem] bg-white aspect-[9/19]">
+                      <div className="absolute top-0 inset-x-0 z-10 flex justify-center pt-2">
                         <div className="h-1.5 w-16 rounded-full bg-black/20" />
                       </div>
+
                       <Image
                         src={shot.src}
                         alt={shot.label}
@@ -297,11 +353,12 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="px-2 pt-4 pb-2 text-center">
-                  <h3 className="text-sm font-bold text-primary mb-1">
+                <div className="text-center pt-5 pb-2">
+                  <h3 className="text-base font-bold text-primary mb-2">
                     {shot.label}
                   </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">
+
+                  <p className="text-sm text-gray-500 leading-relaxed">
                     {shot.caption}
                   </p>
                 </div>
@@ -309,14 +366,15 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          {/* App Features */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {appFeatures.map((feature) => (
               <div
                 key={feature.title}
-                className="group bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-colors"
+                className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:border-accent/20"
               >
                 <div
-                  className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform ${
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105 ${
                     feature.accent
                       ? "bg-accent text-primary"
                       : "bg-white/10 text-accent border border-white/10"
@@ -332,10 +390,12 @@ export default function AboutPage() {
                     {feature.icon}
                   </svg>
                 </div>
-                <h4 className="text-base font-bold text-white mb-2">
+
+                <h3 className="text-lg font-bold text-white mb-2">
                   {feature.title}
-                </h4>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                </h3>
+
+                <p className="text-sm text-gray-400 leading-relaxed">
                   {feature.description}
                 </p>
               </div>

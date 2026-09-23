@@ -12,33 +12,69 @@ export function ContactForm() {
   }
 
   return (
-    <div className="w-full lg:w-2/3 bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden">
-            <div className="p-10 md:p-12">
-        <div className="mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+    <div className="w-full lg:w-2/3 overflow-hidden rounded-[2rem] border border-gray-100 bg-white shadow-sm">
+      <div className="p-6 sm:p-8 md:p-10 lg:p-12">
+        <div className="mb-8 md:mb-10">
+          <span className="mb-4 inline-flex rounded-full bg-secondary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-secondary">
+            Get in Touch
+          </span>
+
+          <h2 className="text-2xl font-bold text-primary sm:text-3xl">
             Send Us a Message
           </h2>
-          <div className="w-16 h-1.5 bg-accent rounded-full mb-4" />
-          <p className="text-gray-500 text-sm md:text-base">
-            Our team will get back to you within 24 hours — including Agrovet
-            store early-access requests.
+
+          <div className="mt-4 h-1.5 w-16 rounded-full bg-accent" />
+
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-500 sm:text-base">
+            Have a question or want to learn more about Salama Farm? Send us a
+            message and our team will get back to you.
           </p>
         </div>
 
         {sent && (
-          <div className="mb-6 rounded-2xl bg-accent/20 border border-accent/40 text-primary px-5 py-4 font-medium">
-            Thanks — your message was received. We&apos;ll get back to you soon.
+          <div
+            className="mb-6 flex items-start gap-3 rounded-2xl border border-accent/40 bg-accent/15 px-5 py-4 text-sm font-medium text-primary"
+            role="status"
+            aria-live="polite"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="mt-0.5 h-5 w-5 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+
+            <span>
+              Thanks — your message was received. We&apos;ll get back to you
+              soon.
+            </span>
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label className="text-sm font-bold text-primary uppercase tracking-wider ml-1">
+              <label
+                htmlFor="contact-name"
+                className="ml-1 text-xs font-bold uppercase tracking-wider text-primary sm:text-sm"
+              >
                 Full Name
               </label>
+
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none group-focus-within:text-primary text-gray-400 transition-colors">
+                <div
+                  className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400 transition-colors group-focus-within:text-primary"
+                  aria-hidden="true"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -54,21 +90,32 @@ export function ContactForm() {
                     />
                   </svg>
                 </div>
+
                 <input
+                  id="contact-name"
                   type="text"
                   name="name"
                   placeholder="John Doe"
-                  className="w-full pl-12 pr-4 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none"
+                  autoComplete="name"
+                  className="w-full rounded-2xl border border-gray-200 bg-gray-50 py-4 pl-12 pr-4 text-gray-800 outline-none transition-all placeholder:text-gray-400 focus:border-secondary focus:bg-white focus:ring-4 focus:ring-secondary/10"
                   required
                 />
               </div>
             </div>
+
             <div className="space-y-2">
-              <label className="text-sm font-bold text-primary uppercase tracking-wider ml-1">
+              <label
+                htmlFor="contact-email"
+                className="ml-1 text-xs font-bold uppercase tracking-wider text-primary sm:text-sm"
+              >
                 Email Address
               </label>
+
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none group-focus-within:text-primary text-gray-400 transition-colors">
+                <div
+                  className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400 transition-colors group-focus-within:text-primary"
+                  aria-hidden="true"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -84,11 +131,14 @@ export function ContactForm() {
                     />
                   </svg>
                 </div>
+
                 <input
+                  id="contact-email"
                   type="email"
                   name="email"
                   placeholder="john@example.com"
-                  className="w-full pl-12 pr-4 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none"
+                  autoComplete="email"
+                  className="w-full rounded-2xl border border-gray-200 bg-gray-50 py-4 pl-12 pr-4 text-gray-800 outline-none transition-all placeholder:text-gray-400 focus:border-secondary focus:bg-white focus:ring-4 focus:ring-secondary/10"
                   required
                 />
               </div>
@@ -96,11 +146,18 @@ export function ContactForm() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-bold text-primary uppercase tracking-wider ml-1">
+            <label
+              htmlFor="contact-phone"
+              className="ml-1 text-xs font-bold uppercase tracking-wider text-primary sm:text-sm"
+            >
               Phone Number
             </label>
+
             <div className="relative group">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none group-focus-within:text-primary text-gray-400 transition-colors">
+              <div
+                className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400 transition-colors group-focus-within:text-primary"
+                aria-hidden="true"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -116,38 +173,47 @@ export function ContactForm() {
                   />
                 </svg>
               </div>
+
               <input
+                id="contact-phone"
                 type="tel"
                 name="phone"
                 placeholder="+254 700 000 000"
-                className="w-full pl-12 pr-4 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none"
+                autoComplete="tel"
+                className="w-full rounded-2xl border border-gray-200 bg-gray-50 py-4 pl-12 pr-4 text-gray-800 outline-none transition-all placeholder:text-gray-400 focus:border-secondary focus:bg-white focus:ring-4 focus:ring-secondary/10"
               />
             </div>
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-bold text-primary uppercase tracking-wider ml-1">
+            <label
+              htmlFor="contact-message"
+              className="ml-1 text-xs font-bold uppercase tracking-wider text-primary sm:text-sm"
+            >
               Your Message
             </label>
+
             <textarea
+              id="contact-message"
               name="message"
               rows={5}
-              placeholder="Tell us about your farming needs..."
-              className="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all outline-none resize-none"
+              placeholder="Tell us how we can help..."
+              className="w-full resize-none rounded-2xl border border-gray-200 bg-gray-50 px-5 py-4 text-gray-800 outline-none transition-all placeholder:text-gray-400 focus:border-secondary focus:bg-white focus:ring-4 focus:ring-secondary/10 sm:px-6"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-primary text-white py-5 rounded-2xl font-bold text-xl hover:bg-accent hover:text-primary transition-all shadow-xl flex items-center justify-center space-x-3 group"
+            className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-primary px-6 py-4 text-base font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 sm:py-5 sm:text-lg"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+              className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 sm:h-6 sm:w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -156,6 +222,7 @@ export function ContactForm() {
                 d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
               />
             </svg>
+
             <span>Send Your Message</span>
           </button>
         </form>

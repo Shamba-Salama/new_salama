@@ -22,7 +22,6 @@ const services = [
       "24/7 coverage",
     ],
     tags: ["Crop Protection", "AI Powered"],
-    rotate: "group-hover:rotate-6",
     icon: (
       <path
         strokeLinecap="round"
@@ -44,7 +43,6 @@ const services = [
       "Expert integration",
     ],
     tags: ["Quick Diagnosis", "Mobile Access"],
-    rotate: "group-hover:-rotate-6",
     icon: (
       <path
         strokeLinecap="round"
@@ -66,7 +64,6 @@ const services = [
       "Impact consultation",
     ],
     tags: ["Fast Delivery", "Crop Specific"],
-    rotate: "group-hover:rotate-6",
     icon: (
       <path
         strokeLinecap="round"
@@ -136,7 +133,7 @@ const reasons = [
 function CheckIcon() {
   return (
     <svg
-      className="h-5 w-5 text-primary mr-3 shrink-0"
+      className="h-5 w-5 text-primary shrink-0"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -154,8 +151,9 @@ function CheckIcon() {
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative py-24 pt-36">
-        <div className="absolute inset-0 z-0">
+      {/* Hero */}
+      <section className="relative min-h-[520px] flex items-center justify-center overflow-hidden pt-32 pb-20">
+        <div className="absolute inset-0">
           <Image
             src="/assets/img/carousel/drone-1.png"
             alt="Drone over farm"
@@ -164,67 +162,33 @@ export default function ServicesPage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/80 to-secondary/70" />
+
+          <div className="absolute inset-0 bg-primary/85" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex p-4 rounded-2xl bg-white/10 backdrop-blur-md mb-8 animate-bounce">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-12 w-12 text-accent"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
-            </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 tracking-tight leading-tight">
-              Our Agricultural <span className="text-accent">Services</span>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-accent mb-6">
+              What We Offer
+            </span>
+
+            <h1 className="text-4xl md:text-6xl font-bold text-white leading-[1.08] tracking-tight mb-6">
+              Our Agricultural{" "}
+              <span className="text-accent">Services</span>
             </h1>
-            <p className="text-sm md:text-base text-gray-200 mb-10 leading-relaxed max-w-3xl mx-auto">
-              Comprehensive farming solutions powered by cutting-edge technology
-              to protect your crops and maximize your yields.
+
+            <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-200 leading-relaxed mb-8">
+              Comprehensive farming solutions powered by cutting-edge
+              technology to protect your crops and maximize your yields.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <span className="bg-accent text-primary px-6 py-2 rounded-full font-bold text-sm flex items-center shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
+
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="rounded-full bg-accent px-5 py-2 text-xs md:text-sm font-bold text-primary">
                 Sustainable Farming
               </span>
-              <span className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-6 py-2 rounded-full font-bold text-sm flex items-center shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.75 17L9 21l-1 1h8l-1-1-.75-4M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
+
+              <span className="rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs md:text-sm font-bold text-white backdrop-blur-sm">
                 Smart Technology
               </span>
             </div>
@@ -232,34 +196,40 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Agrovet */}
       <AgrovetLaunch compact />
 
-      <section className="py-16 bg-gray-50">
+      {/* Services */}
+      <section className="py-20 md:py-28 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 tracking-tight">
+          <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Our Solutions
+            </span>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mt-3 mb-5">
               Innovative Farming Solutions
             </h2>
-            <div className="w-16 h-1.5 bg-accent mx-auto rounded-full mb-4" />
-            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-              Advanced technology services designed for modern agriculture —
-              including Agrovet store tools launching Friday.
+
+            <div className="w-16 h-1.5 bg-accent mx-auto rounded-full mb-6" />
+
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+              Advanced technology services designed to support modern
+              agriculture and help farmers protect their crops.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {services.map((service) => (
-              <div
+              <article
                 key={service.title}
-                className="group bg-white rounded-[2.5rem] shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group flex flex-col bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
               >
-                <div className="p-10 bg-primary text-center group-hover:bg-primary/95 transition-colors">
-                  <div
-                    className={`w-20 h-20 bg-accent text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 transform ${service.rotate} transition-transform`}
-                  >
+                <div className="bg-primary p-8 md:p-10 text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-accent text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-10 w-10"
+                      className="h-8 w-8 md:h-10 md:w-10"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -267,31 +237,37 @@ export default function ServicesPage() {
                       {service.icon}
                     </svg>
                   </div>
-                  <h3 className="text-lg font-bold text-white">
+
+                  <h3 className="text-xl font-bold text-white">
                     {service.title}
                   </h3>
                 </div>
-                <div className="p-10 space-y-6">
-                  <p className="text-gray-600 leading-relaxed">
+
+                <div className="flex flex-1 flex-col p-7 md:p-8">
+                  <p className="text-gray-600 leading-relaxed mb-7">
                     {service.description}
                   </p>
+
                   <ul className="space-y-3">
                     {service.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-center text-gray-700 font-medium"
+                        className="flex items-center gap-3 text-sm text-gray-700 font-medium"
                       >
                         <CheckIcon />
-                        {feature}
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    {service.tags.map((tag, i) => (
+
+                  <div className="flex flex-wrap gap-2 mt-auto pt-7">
+                    {service.tags.map((tag, index) => (
                       <span
                         key={tag}
-                        className={`px-4 py-1.5 text-sm font-bold rounded-full text-primary ${
-                          i === 0 ? "bg-primary/5" : "bg-accent/20"
+                        className={`rounded-full px-4 py-1.5 text-xs font-bold ${
+                          index === 0
+                            ? "bg-primary/5 text-primary"
+                            : "bg-accent/20 text-primary"
                         }`}
                       >
                         {tag}
@@ -299,31 +275,42 @@ export default function ServicesPage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      {/* Why Choose Us */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Why SalamaFarm
+            </span>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mt-3 mb-5">
               Why Choose Our Services?
             </h2>
-            <div className="w-24 h-2 bg-accent mx-auto rounded-full mb-8" />
+
+            <div className="w-16 h-1.5 bg-accent mx-auto rounded-full mb-6" />
+
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+              Technology and agricultural expertise working together to
+              support better farming outcomes.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {reasons.map((reason) => (
-              <div
+              <article
                 key={reason.title}
-                className="text-center p-8 rounded-3xl hover:bg-gray-50 transition-colors group"
+                className="group rounded-3xl border border-gray-100 bg-gray-50 p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-lg hover:border-accent/30"
               >
-                <div className="w-16 h-16 bg-primary/5 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-accent transition-all">
+                <div className="w-12 h-12 rounded-xl bg-primary/5 text-primary flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-primary group-hover:text-accent">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8"
+                    className="h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -331,70 +318,87 @@ export default function ServicesPage() {
                     {reason.icon}
                   </svg>
                 </div>
-                <h4 className="text-sm md:text-base font-bold text-primary mb-3">
+
+                <h3 className="text-base md:text-lg font-bold text-primary mb-3">
                   {reason.title}
-                </h4>
-                <p className="text-gray-500">{reason.description}</p>
-              </div>
+                </h3>
+
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {reason.description}
+                </p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-accent rounded-full blur-[120px]" />
+      {/* CTA */}
+      <section className="relative overflow-hidden bg-primary py-20 md:py-24">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
         </div>
-        <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight">
-            Ready to Transform Your Farming?
-          </h2>
-          <p className="text-sm md:text-base text-gray-300 mb-12 leading-relaxed">
-            Join hundreds of farmers already benefiting from our advanced
-            agricultural services. Start protecting your crops and increasing
-            your yields today.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link
-              href="/form"
-              className="w-full sm:w-auto bg-accent text-primary px-10 py-5 rounded-full font-bold text-sm md:text-base hover:bg-white transition-all transform hover:-translate-y-1 shadow-2xl flex items-center justify-center space-x-3 group"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 group-hover:rotate-12 transition-transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-accent mb-5">
+              Get Started
+            </span>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 tracking-tight">
+              Ready to Transform Your Farming?
+            </h2>
+
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-10">
+              Join farmers already benefiting from our advanced agricultural
+              services. Start protecting your crops and improving your farming
+              experience today.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/form"
+                className="w-full sm:w-auto bg-accent text-primary px-8 py-4 rounded-full font-bold text-sm md:text-base hover:bg-white transition-all duration-300 hover:-translate-y-1 shadow-lg flex items-center justify-center gap-3"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
-              <span>Get Started Now</span>
-            </Link>
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-full font-bold text-sm md:text-base hover:bg-white/20 transition-all flex items-center justify-center space-x-3"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+
+                <span>Get Started Now</span>
+              </Link>
+
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto border border-white/20 bg-white/5 text-white px-8 py-4 rounded-full font-bold text-sm md:text-base hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span>Contact Us</span>
-            </Link>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a2 2 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+
+                <span>Contact Us</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

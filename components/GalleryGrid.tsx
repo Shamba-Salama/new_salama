@@ -26,8 +26,10 @@ export function GalleryGrid({ images }: GalleryGridProps) {
     (direction: number) => {
       setActiveIndex((current) => {
         if (current === null || images.length === 0) return current;
+
         const next = (current + direction + images.length) % images.length;
         setLoading(true);
+
         return next;
       });
     },
@@ -44,32 +46,47 @@ export function GalleryGrid({ images }: GalleryGridProps) {
     };
 
     document.addEventListener("keydown", onKey);
+
     return () => document.removeEventListener("keydown", onKey);
   }, [activeIndex, changeImage, close]);
 
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   if (images.length === 0) {
     return (
-      <div className="text-center py-24">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="mx-auto h-16 w-16 text-gray-300"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 4a1 1 0 011-1h3.28a1 1 0 01.948.684l.347 1.04a1 1 0 00.95.684h5.146a1 1 0 00.95-.684l.347-1.04A1 1 0 0117.72 3H21a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"
-          />
-        </svg>
-        <h2 className="mt-4 text-2xl font-semibold text-gray-600">
+      <div className="py-24 text-center">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.8}
+              d="M3 4a1 1 0 011-1h3.28a1 1 0 01.948.684l.347 1.04a1 1 0 00.95.684h5.146a1 1 0 00.95-.684l.347-1.04A1 1 0 0117.72 3H21a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"
+            />
+          </svg>
+        </div>
+
+        <h2 className="mt-5 text-xl font-semibold text-gray-700 md:text-2xl">
           No images found
         </h2>
-        <p className="mt-2 text-gray-400">
+
+        <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-gray-500">
           Please check back later or add pictures to{" "}
-          <code>/assets/img/carousel/</code>.
+          <code className="rounded bg-gray-100 px-1.5 py-0.5 text-xs">
+            /assets/img/carousel/
+          </code>
+          .
         </p>
       </div>
     );
@@ -77,31 +94,39 @@ export function GalleryGrid({ images }: GalleryGridProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {images.map((src, index) => {
-          const filename = decodeURIComponent(src.split("/").pop() || "image");
+          const filename = decodeURIComponent(
+            src.split("/").pop() || "image",
+          );
+
           return (
             <button
               type="button"
               key={src}
-              className="group relative aspect-square rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer text-left"
+              className="group relative aspect-square cursor-pointer overflow-hidden rounded-2xl bg-gray-100 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
               onClick={() => open(index)}
+              aria-label={`Open ${filename}`}
             >
               <Image
                 src={src}
                 alt={`Gallery image: ${filename}`}
                 fill
-                className="object-cover transform transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
-              <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-xl">
+
+              <div className="absolute inset-0 bg-primary/0 transition-colors duration-300 group-hover:bg-primary/45" />
+
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="flex h-14 w-14 translate-y-2 items-center justify-center rounded-full bg-white text-primary shadow-lg transition-transform duration-300 group-hover:translate-y-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8 text-primary"
+                    className="h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -112,6 +137,12 @@ export function GalleryGrid({ images }: GalleryGridProps) {
                   </svg>
                 </div>
               </div>
+
+              <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-gradient-to-t from-primary/80 to-transparent px-4 pb-4 pt-10 transition-transform duration-300 group-hover:translate-y-0">
+                <p className="truncate text-sm font-medium text-white">
+                  {filename}
+                </p>
+              </div>
             </button>
           );
         })}
@@ -119,25 +150,27 @@ export function GalleryGrid({ images }: GalleryGridProps) {
 
       {activeIndex !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-primary/95 backdrop-blur-md flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-primary/95 p-4"
           onClick={(e) => {
             if (e.target === e.currentTarget) close();
           }}
           role="dialog"
           aria-modal="true"
+          aria-label="Gallery image preview"
         >
           <button
             type="button"
             onClick={close}
-            className="absolute top-6 right-6 text-white hover:text-accent transition-colors"
+            className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-white md:right-6 md:top-6"
             aria-label="Close preview"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -151,15 +184,16 @@ export function GalleryGrid({ images }: GalleryGridProps) {
           <button
             type="button"
             onClick={() => changeImage(-1)}
-            className="absolute left-4 md:left-8 text-white hover:text-accent transition-colors hidden sm:flex"
+            className="absolute left-3 z-20 hidden h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:flex md:left-6"
             aria-label="Previous image"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -173,15 +207,16 @@ export function GalleryGrid({ images }: GalleryGridProps) {
           <button
             type="button"
             onClick={() => changeImage(1)}
-            className="absolute right-4 md:right-8 text-white hover:text-accent transition-colors hidden sm:flex"
+            className="absolute right-3 z-20 hidden h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:flex md:right-6"
             aria-label="Next image"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -192,15 +227,16 @@ export function GalleryGrid({ images }: GalleryGridProps) {
             </svg>
           </button>
 
-          <div className="max-w-5xl w-full relative">
+          <div className="relative w-full max-w-5xl">
             {loading && (
-              <div className="absolute inset-0 flex items-center justify-center z-10">
+              <div className="absolute inset-0 z-10 flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-16 w-16 text-white animate-spin"
+                  className="h-10 w-10 animate-spin text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-label="Loading image"
                 >
                   <path
                     strokeLinecap="round"
@@ -211,19 +247,25 @@ export function GalleryGrid({ images }: GalleryGridProps) {
                 </svg>
               </div>
             )}
+
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={images[activeIndex]}
-              alt="Preview"
-              className="w-full max-h-[85vh] object-contain rounded-3xl shadow-2xl mx-auto"
+              alt="Salama Farm gallery preview"
+              className="mx-auto max-h-[78vh] w-full rounded-2xl object-contain shadow-2xl md:max-h-[82vh]"
               onLoad={() => setLoading(false)}
               onError={(e) => {
                 setLoading(false);
                 e.currentTarget.src = "/assets/img/brand/logo.png";
               }}
             />
-            <div className="mt-6 text-center text-white font-bold text-lg">
-              &copy; Salama Farm
+
+            <div className="mt-4 flex items-center justify-center gap-3 text-sm text-white/80">
+              <span>
+                {activeIndex + 1} / {images.length}
+              </span>
+              <span aria-hidden="true">•</span>
+              <span>Salama Farm</span>
             </div>
           </div>
         </div>

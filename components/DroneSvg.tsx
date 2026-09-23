@@ -6,7 +6,7 @@ export function DroneSvg() {
       className="w-full h-auto"
       role="img"
     >
-      <title>drone_surveillance</title>
+      <title>Salama Farm drone surveillance</title>
       <path
         d="M479.90234,562.18555a3.86767,3.86767,0,0,0-3.86279,3.86328V720.36328a3.86767,3.86767,0,0,0,3.86279,3.86328h26.1958a3.86768,3.86768,0,0,0,3.8628-3.86328V566.04883a3.86768,3.86768,0,0,0-3.8628-3.86328Z"
         transform="translate(-156 -173.93539)"
